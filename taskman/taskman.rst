@@ -133,23 +133,7 @@ Before you can launch the blueprint, you must first provide specify the informat
 
    .. figure:: images/8.png
 
-Launching the Blueprint
-+++++++++++++++++++++++
-
-#. After the credentials have been provided, **Publish**, **Download**, and **Launch** are now available from the toolbar. Click **Launch**.
-
-#. Fill out the following fields:
-
-   - **Name of the Application** - *Initials*-TaskManager1
-   - **User_initials** - *Initials*
-
-   .. figure:: images/9.png
-
-#. Click **Create**.
-
-   You can monitor the status of your application deployment by clicking |applications| **Applications** and clicking your application's name.
-
-   Provisioning the complete application will take approximately 15 minutes. Proceed to the next section of the lab while the application is provisioning.
+After you're done, please return to :ref:`calm_day2`.
 
 .. |projects| image:: images/projects.png
 .. |blueprints| image:: images/blueprints.png
