@@ -20,7 +20,7 @@ Lab Setup
 
 This lab depends on the availability of a multi-tier **Task Manger** web application implemented during the :ref:`calm_linux` lab.
 
-If you have not run the :ref:`calm_linux` lab please download the Needed Taskmaneger Blueprint JSON file here.
+If you have not run the :ref:`calm_linux` lab please follow :ref:`taskman` before moving on.
 
 **You do NOT need to launch the Task Manager blueprint once imported.**
 
