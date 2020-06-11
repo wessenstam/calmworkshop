@@ -56,6 +56,8 @@ Automate, Empower, Relax
 
 .. figure:: images/what_is_calm_03a.png
 
+.. figure:: images/what_is_calm_03b.png
+
 Self-Service and Governance
 ...........................
 
@@ -72,7 +74,17 @@ Marketplace
 
 .. figure:: images/what_is_calm_04.png
 
-User Case 1: Self-Service App Provisioning
+IaaS User Case
+------------------------------------------
+.. figure:: images/what_is_calm_04a.png
+
+.. figure:: images/what_is_calm_04b.png
+
+.. figure:: images/what_is_calm_04c.png
+
+.. figure:: images/what_is_calm_04d.png
+
+Self-Service App Provisioning Use Case
 ------------------------------------------
 
 .. figure:: images/what_is_calm_06.png
@@ -83,10 +95,30 @@ User Case 1: Self-Service App Provisioning
 
 .. figure:: images/what_is_calm_09.png
 
-User Case 2: Self-Service via ServiceNow & Calm
+Self-Service via ServiceNow & Calm
 -----------------------------------------------
 
 .. figure:: images/what_is_calm_10.png
+
+Multi-Cloud Use case
+-----------------------------------------------
+
+.. figure:: images/what_is_calm_10a.png
+
+PaaS Use case
+-----------------------------------------------
+
+.. figure:: images/what_is_calm_10b.png
+
+
+ITaaS Use case
+-----------------------------------------------
+
+.. figure:: images/what_is_calm_10e.png
+
+.. figure:: images/what_is_calm_10f.png
+
+.. figure:: images/what_is_calm_10g.png
 
 Role-Based Access Control
 -----------------------------------------------
@@ -155,12 +187,12 @@ Kubernetes with Calm
 
 .. figure:: images/what_is_calm_18.png
 
-Use Case 3: Application Life Cycle Management
+Application Life Cycle Management Use Case
 ---------------------------------------------
 
 .. figure:: images/what_is_calm_19.png
 
-Use Case 4: CI/CD using Calm and Jenkins
+CI/CD using Calm and Jenkins Use Case
 ----------------------------------------
 
 - Jenkins Calm plugin provides a complete native integration between the CI/CD and life cycle management of the application 
