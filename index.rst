@@ -16,6 +16,9 @@
   calm_win/calm_win
   calm_day2/calm_day2
   calm_escript/calm_escript
+  calm_servicenow/calm_servicenow
+  calm_runbooks/calm_runbooks
+  calm_dsl/calm_dsl
 
 .. _getting_started:
 
@@ -53,6 +56,11 @@ Agenda
        - Windows 2-Tier Application
     - Day 2 Operation Management (Calm Actions - Scaling Out/In)
     - Calm: EScript
+    -Optional Labs:
+      -Self-Service with ServiceNow
+      -IT as a Service with Calm Runbooks
+      -Ifrastructure as Code with Calm DSL
+
 
 Introductions
 +++++++++++++
