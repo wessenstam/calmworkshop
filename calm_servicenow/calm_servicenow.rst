@@ -24,39 +24,37 @@ ServiceNow is a market leader in ITSM and ITOM and for many customer ITSM and IT
 
 .. figure:: images/calm_servicenow_01.png
 
-
 Calm ServiceNow Plug-in Overview
 +++++++++++++++++++++++++++++++++
 
-   - Provide integration with ServiceNow Service Portal for user self-service of Calm BP or Marketplace items
-   - Plugin allows ServiceNow admins to create catalog items based on Calm blueprints 
-   - ServiceNow users can launch blueprints and perform day-2 operations
-   - ServiceNow admins can attach any specific workflow to ServiceNow Calm catalog,
-   - ServiceNow catalog items can be created from a blueprint (Single/Multi-VM) on any supported profile; published (i.e., marketplace items) or unpublished blueprints can be used
-   - ServiceNow admin can pre-fill “runtime” values in ServiceNow catalog item, reducing launch complexity 
-   - ServiceNow catalog items are published using ServiceNow user/groups RBAC framework (Calm and ServiceNow must share the same authentication source)
-   - Runlogs can be tracked in ServiceNow GUI under Applications
-   - Orders and Incidents relating to Calm operations can be tracked in ServiceNow
-
-.. figure:: images/calm_servicenow_02.png
-
+- Provide integration with ServiceNow Service Portal for user self-service of Calm BP or Marketplace items
+- Plugin allows ServiceNow admins to create catalog items based on Calm blueprints 
+- ServiceNow users can launch blueprints and perform day-2 operations
+- ServiceNow admins can attach any specific workflow to ServiceNow Calm catalog,
+- ServiceNow catalog items can be created from a blueprint (Single/Multi-VM) on any supported profile; published (i.e., marketplace items) or unpublished blueprints can be used
+- ServiceNow admin can pre-fill “runtime” values in ServiceNow catalog item, reducing launch complexity 
+- ServiceNow catalog items are published using ServiceNow user/groups RBAC framework (Calm and ServiceNow must share the same authentication source)
+- Runlogs can be tracked in ServiceNow GUI under Applications
+- Orders and Incidents relating to Calm operations can be tracked in ServiceNow
 
 Calm ServiceNow Plug-in Setup
 ++++++++++++++++++++++++++++++
 
 Prerequisites for Nutanix Calm ServiceNow Plug-in
 
-   - Nutanix Calm and ServiceNow both must be configured with the same AD or LDAP instance.
-   - ITSM license that includes incident management module. The license is used to create incidents to report  blueprint and other events launch failures.
-   .. note::
-   Without ITSM license, installation of application from the store does not work as this dependency is bundled
-with the application.
-   - ServiceNow MID server must be installed and configured. For information on how to install and configure MID server, refer to the MID Server section in the ServiceNow Documentation. To refer to a video about setting up a MID server, https://www.youtube.com/watch?v=Pgi3WZAqmq0
-   - Ensure that the MID server is running in your environment. Calm is reachable from the machine or environment where MID server is installed.
-   - The MID server user has administrator privileges.
-   - The MID server is up and validated.
-   - To activate the Calm plug-in on ServiceNow platform, contact your instance ServiceNow administrator.
-   - You must have administrator privileges to activate and configure the plug-in. Provide integration with ServiceNow Service Portal for user self-service of Calm BP or Marketplace items
+- Nutanix Calm and ServiceNow both must be configured with the same AD or LDAP instance.
+- ITSM license that includes incident management module. The license is used to create incidents to report  blueprint and other events launch failures.
+
+.. note::
+
+   Without ITSM license, installation of application from the store does not work as this dependency is bundled with the application.
+
+- ServiceNow MID server must be installed and configured. For information on how to install and configure MID server, refer to the MID Server section in the ServiceNow Documentation. To refer to a video about setting up a MID server, https://www.youtube.com/watch?v=Pgi3WZAqmq0
+- Ensure that the MID server is running in your environment. Calm is reachable from the machine or environment where MID server is installed.
+- The MID server user has administrator privileges.
+- The MID server is up and validated.
+- To activate the Calm plug-in on ServiceNow platform, contact your instance ServiceNow administrator.
+- You must have administrator privileges to activate and configure the plug-in. Provide integration with ServiceNow Service Portal for user self-service of Calm BP or Marketplace items
 
 .. figure:: images/calm_servicenow_03.png
 
@@ -65,16 +63,14 @@ Instance Details
 
 In this excercise we have provided an instance which maybe used at anytime after the excercise to demonstrate to customerser and prospects.
 
-   - ServiceNow Instance: https://ven03030.service-now.com
-   - Admin Login: admin/Nutanix!@123 (to create catalogue item)
+- Instance Details: https://docs.google.com/document/d/1F6S0SeNpMpcJydlzC0BiahaURBG_IP3ingHugslTHVo/edit?usp=sharing
 
 This ServiceNow instance is connected with https://calm-demo.nutanix.com:9440 instance.
 
 Create Catalogue Instance
 +++++++++++++++++++++++++
 
-#. Navigate to **+ Nutanix Calm > Catalog Items**. Click on the **New** button to create a new
-catalog item
+#. Navigate to **+ Nutanix Calm > Catalog Items**. Click on the **New** button to create a new catalog item
 
    .. note::
 
@@ -82,120 +78,43 @@ catalog item
       - Use the Catalog Management menu under Nutanix Calm in the left navigation bar
       - Ensure your scope is “Nutanix Calm” as indicated in the screen shot belowMousing over an icon will display its title.
 
-.. figure:: images/calm_servicenow_04.png
+   .. figure:: images/calm_servicenow_04.png
 
-#. Click **+ Create Blueprint > Single VM Blueprint**.
-
-#. Fill out the following fields:
-
-   - **Name** - *initials*-CalmSingle
-   - **Project** - *initials*-Calm
-
-   .. figure:: images/calm_singlevm_01.png
-
-#. Click **VM Details >**
-
-#. Fill out the following fields:
-
-   - **Name** - 
-
-     .. code-block:: text
-       
-       CentOSAHV
-
-   - **Cloud** - *Nutanix*
-   - **Operating System** - *Linux*
-
-   .. figure:: images/calm_singlevm_02.png
-
-#. Click **VM Configuration >**
-
-#. Fill out the following fields:
-
-   - **VM Name** - 
-
-     .. code-block:: text
-       
-       @@{USER_INITIALS}@@-centos-@@{calm_time}@@
+#. Project, Blueprint (or MPI) and a Profile are to be selected when creating a catalog item.
 
    .. note::
-      This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention. Macros are defined using **@@{}@@**
+      - These cannot be edited later. Choose “Demo Apps” project
 
-   - **vCPUs** - *2* - Enable *runtime* (Runtime is specified by toggling the Running Man icon to Blue)
-   - **Cores per vCPU** - *1*
-   - **Memory (GiB)** - *4*
-   - Select **Guest Customization**
-   
-     - Leave **Cloud-init** selected and paste in the following script
-   
-       .. code-block:: bash
-   
-         #cloud-config
-         users:
-           - name: centos
-             sudo: ['ALL=(ALL) NOPASSWD:ALL']
-         chpasswd:
-           list: |
-             centos:@@{PASSWORD}@@
-           expire: False
-         ssh_pwauth: True
-   
-   .. figure:: images/calm_singlevm_04.png
-   
-   - **Image** - CentOS-7-x86_64-GenericCloud
-   - Select **Bootable**
+   .. figure:: images/calm_servicenow_05.png
 
-   .. figure:: images/calm_singlevm_05.png
+#. Choose blueprint **Developer Workstation Window**. This is a demo blueprint already provisioned on the connected Calm instance for this workshop.
 
-   - Select :fa:`plus-circle` along **Network Adapters (NICs)**
-   - **NIC 1** - Primary
-   
-   .. figure:: images/calm_singlevm_05b.png
+#. All the profiles configured in the blueprints are listed under Application Profile field. Choose **Nutanix** and click on **Choose Options** button on the top right/bottom corner.
 
-#. Click **App variables (0) >**
+#. This next page has 4 sub-tabs with various details as configured in the blueprint shows up. As a catalog administrator, you can choose specific values or configure them as runtime in the catalog item.
 
-#. Add the following variables (**Runtime** is specified by toggling the **Running Man** icon to Blue):
+#. Variables tab displays all the profile variables excluding any private variables. Values (if any) set in the blueprint is displayed here. If this variable is marked runtime in the blueprint, you are allowed to change/set the value in this catalog item. Further, you can choose to remove runtime flag in the catalog item. The plugin renders an order create form corresponding to a catalog item based on only “runtime” variable or VM spec attributes
 
-   +------------------------+-------------------------------+------------+-------------+
-   | **Variable Name**      | **Data Type** | **Value**     | **Secret** | **Runtime** |
-   +------------------------+-------------------------------+------------+-------------+
-   | USER_INITIALS          | String        | xyz           |            |      X      |
-   +------------------------+-------------------------------+------------+-------------+
-   | PASSWORD               | String        |               |     X      |      X      |
-   +------------------------+-------------------------------+------------+-------------+
+.. figure:: images/calm_servicenow_06.png
 
-   .. figure:: images/calm_singlevm_03.png
+#. Service configuration tab lists all the services as configured in the blueprint. This page allows you to view/edit the VM specs for each substrate configured as a part of the service in the blueprint. All VM spec attributes marked as runtime in the blueprint can be edited on this page. Further, if you wish to fix/lock a specific value, you can set the value and remove the runtime in this catalog item.
 
-#. Click **Done**
+  .. note::
+      - Only some of the VM spec attributes can be edited as a part of catalog item definition. Fields like disks, image, guest customization attributes, etc cannot be edited or changed in a catalog item
+      - Calm macros and auto completion is not supported in the Calm plugin
+      .. figure:: images/calm_servicenow_07.png
 
-#. Click **Save**
+#. You can leave the credentials as is and move to next tab. In case of multiple credentials configured in a project (in case of MPI launch), this page can be used for credential mapping to the ones used in the blueprint
 
-#. Click **Launch** at the top of the Blueprint Editor.
+#. In the **General Setting** tab, specify a unique catalog item name and a description what ServiceNow users will see when they attempt to order this catalog item. 
 
-#. Fill out the following fields:
+#. Choose AD/LDAP users/groups who will have visibility to this catalog item in ServiceNow. On saving this catalog item, plugin adds these users or the group users to the corresponding Project in Calm with **consumer** role. Make sure you add yourself as a user who can order this catalog.
 
-   .. note::
-      A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
+#. Under assign user field, search and add your account (as imported from Nutanix AD)
 
-   - **Name of the Application** - *initials*-CalmCentOS-1
-   - **USER_INITIALS** - *initials*
-   - **PASSWORD** - *any password*
+.. figure:: images/calm_servicenow_08.png
 
-#. Click **Create**
-
-   .. figure:: images/calm_singlevm_06.png
-
-   You will be taken directly to the **Applications** page to monitor the provisioning of your Blueprint.
-
-#. Click **Audit > Create** to view the progress of your application.
-
-#. Click **Substrate Create > CentOSAHV - Provision Nutanix** to view the real time output of the provisioning.
-
-   .. figure:: images/calm_singlevm_07.png
-
-   Note the status changes to **Running** after the Blueprint has been successfully provisioned.
-
-   .. figure:: images/calm_singlevm_08.png
+#. Save the catalog item. It may take a few seconds for this operation to be complete. This new catalog item should get listed under the catalog items
 
 Takeaways
 +++++++++

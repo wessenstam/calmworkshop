@@ -2,7 +2,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Calm
+  :caption: Calm 101
   :name: _calm
   :hidden:
 
@@ -12,13 +12,61 @@
   calm_projects/calm_projects
   calm_singlevm_blueprint/calm_singlevm_blueprint
   calm_marketplace/calm_marketplace
+  
+.. toctree::
+  :maxdepth: 2
+  :caption: Calm 201
+  :name: _calm201
+  :hidden:
+
   calm_linux/calm_linux
   calm_win/calm_win
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Calm 301
+  :name: _calm301
+  :hidden:
+  
   calm_day2/calm_day2
   calm_escript/calm_escript
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Optional Module: Calm 3.0 Runbooks
+  :name: _runbooks
+  :hidden:
+
+  calm_runbooks/overview/overview
+  calm_runbooks/endpoints/endpoints
+  calm_runbooks/runbooks/runbooks
+  calm_runbooks/optionallabs/blueprint
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Optional Module: Calm + ServiceNow
+  :name: _servicenow
+  :hidden:
+
   calm_servicenow/calm_servicenow
-  calm_runbooks/calm_runbooks
-  calm_dsl/calm_dsl
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Optional Module: Calm DSL
+  :name: _dsl
+  :hidden:
+
+  calm_dsl/overview/overview
+  calm_dsl/task1/prepare_env
+  calm_dsl/task2/basic_blueprint
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Optional Module: Calm Cloud SDKs
+  :name: _sdks
+  :hidden:
+
+  calm_cloud_sdk/calm_cloud_sdk
 
 .. _getting_started:
 
@@ -46,20 +94,27 @@ Agenda
 - What is Calm
 - Calm basics
 
-- Nutanix Calm Labs
+- Nutanix Calm 101 Labs
     - Calm: Enable
     - Governance (Calm Projects)
-    - Infrastructure as a Service (Calm Single VM Blueprint)
-    - Self-Service Catalog (Calm Marketplace)
+    - Infrastructure as a Service 
+        - Calm Single VM Blueprint
+        - Self-Service Catalog (Calm Marketplace)
+
+- Nutanix Calm 201 Labs
     - Platform as a Service:
        - Linux 3-Tier Application
        - Windows 2-Tier Application
+
+- Nutanix Calm 301 Labs
     - Day 2 Operation Management (Calm Actions - Scaling Out/In)
     - Calm: EScript
-    -Optional Labs:
-      -Self-Service with ServiceNow
-      -IT as a Service with Calm Runbooks
-      -Ifrastructure as Code with Calm DSL
+
+- Nutanix Optional Advanced Labs:
+    - Self-Service with ServiceNow
+    - IT as a Service with Calm Runbooks
+    - Ifrastructure as Code with Calm DSL
+    - Calm Extended automation with Public Cloud Beyond VMs 
 
 
 Introductions
@@ -227,3 +282,4 @@ Nutanix Version Info
 - **AHV Version** - AHV 20170830.279 (5.10+)
 - **AOS Version** - 5.11
 - **PC Version** - 5.11
+- **Calm 3.0
