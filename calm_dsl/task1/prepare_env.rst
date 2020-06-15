@@ -24,8 +24,8 @@ Make sure you have Docker running on your laptop. To verify that Docker engine i
   $ docker --version
 
 If you don't have Docker installed, please refer to the installation instructions here:
-MacOS:
-Windows:
+`MacOS <https://docs.docker.com/docker-for-mac/install/>`_
+`Windows <https://docs.docker.com/docker-for-windows/install/>`_
 
 Running calm-dsl
 .................
