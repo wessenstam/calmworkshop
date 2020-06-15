@@ -46,21 +46,24 @@ Calm ServiceNow Plug-in Setup
 
 Prerequisites for Nutanix Calm ServiceNow Plug-in
 
-- Nutanix Calm and ServiceNow both must be configured with the same AD or LDAP instance.
-- ITSM license that includes incident management module. The license is used to create incidents to report  blueprint and other events launch failures.
+- ServiceNow versions supported: Madrid, New York and Orlando
+- Calm versions supported are 2.7.x and 2.9.x; 3.x validation in process
+- A common AD/LDAP need to be configured in both ServiceNow and PC
+- A MID server needs to be setup in the same subnet as PC/Calm; Plugin interacts with Calm instance via the MID server (ServiceNow standard architecture)
+- On vendor instances, plugin can be installed from ServiceNow store.  Plugin is also available for download here: https://github.com/nutanix/Calm-Servicenow-Plugin/tree/master/v1.1
+- Manual installation of plugin requires some table permission updates, role assignment and commit of update sets
 
-.. note::
-
-   Without ITSM license, installation of application from the store does not work as this dependency is bundled with the application.
-
-- ServiceNow MID server must be installed and configured. For information on how to install and configure MID server, refer to the MID Server section in the ServiceNow Documentation. To refer to a video about setting up a MID server, https://www.youtube.com/watch?v=Pgi3WZAqmq0
-- Ensure that the MID server is running in your environment. Calm is reachable from the machine or environment where MID server is installed.
-- The MID server user has administrator privileges.
-- The MID server is up and validated.
-- To activate the Calm plug-in on ServiceNow platform, contact your instance ServiceNow administrator.
-- You must have administrator privileges to activate and configure the plug-in. Provide integration with ServiceNow Service Portal for user self-service of Calm BP or Marketplace items
+**Plugin Setup**
 
 .. figure:: images/calm_servicenow_03.png
+
+**Plugin Setup with CyberArk**
+
+.. figure:: images/calm_servicenow_03a.png
+
+.. note::
+   Organizations that deploy centralized vaults for password storage and automated password rotation policies use products like CyberArk.  ServiceNow natively integrates with CyberArk and is a supported configuration through ServiceNow credential store.  Calm plugin requires a service account configuration to connect with PC/Calm using the RESTful API interface for its functioning.  This service account can be configured in CyberArk vault and the credentials are retrieved from the vault at runtime without Calm plugin or PC/Calm instance needing to know the password value
+
 
 ----------------
 Instance Details
@@ -72,8 +75,62 @@ In this excercise we have provided an instance which maybe used at anytime after
 
 This ServiceNow instance is connected with https://calm-demo.nutanix.com:9440 instance.
 
-Create Catalogue Instance
-+++++++++++++++++++++++++
+--------------------------------
+Calm Entities in ServiecNow CMDB
+--------------------------------
+
+#. **Following entities are pulled via sync-job (scheduled and on-demand) from Calm:**
+      - Projects
+      - Blueprints
+      - Marketplace Items
+      - Applications
+
+#. **These App specific details are updated in CMDB:**
+      - Applications with VM/Pod details
+      - NICs and IP addresses
+
+#. **Catalog Items mapped to BP/MPI with simplified launch experience**
+
+-------------
+Catalog Items
+-------------
+
+About catalog item and catalogs
+++++++++++++++++++++++++++++++++
+A catalog item can be a product or service. If something can be ordered by itself, it is a catalog item. 
+For example, a new Dell server is a catalog item, as is a new Executive Desk 
+
+.. note::
+ - We use a catalog item to publish a service to ServiceNow users. 
+ - Add a service description, images, and a workflow to determine the approval and fulfilment processes for the catalog items.  For example: a blueprint/MPI exposed as a catalog item that users can ”order” as a part of the fulfilment process
+ - We use the variables to present and gather information from the users
+ - Catalog UI Policies and Catalog Client Scripts can also be added to control the item behaviour based on user input
+ - A catalog is made up of a collection of discrete catalog items
+
+Catalog items with Calm BP/MPI
++++++++++++++++++++++++++++++++
+
+We configure a Project, BP/MPI and a profile with a catalog item
+
+What can you do in Catalog items
+++++++++++++++++++++++++++++++++
+
+#. A catalog item locks Project, Blueprint (or a marketplace item) and a Profile
+
+#. A few VM spec runtime attributes and runtime variables can be pre-filled and locked
+
+#. BP/MPI Credentials can be mapped
+
+#. Users/groups (AD/LDAP and local groups) can be assigned
+
+#. Nutanix Calm catalog can be added to your **service portal** view
+
+.. note::
+ Service Portal is the external portal end-users use to order product and services in ServiceNow, catalogue items can be published to the Service Portal
+
+---------------------
+Create Catalogue Item
+---------------------
 
 #. Navigate to **+ Nutanix Calm > Catalog Items**. Click on the **New** button to create a new catalog item
 
@@ -118,55 +175,55 @@ Create Catalogue Instance
 
 #. Under assign user field, search and add your account (as imported from Nutanix AD)
 
-.. figure:: images/calm_servicenow_08.png
+   .. figure:: images/calm_servicenow_08.png
 
 #. Save the catalog item. It may take a few seconds for this operation to be complete. This new catalog item should get listed under the catalog items
 
-
+--------------------
 Order a Catalog Item
-++++++++++++++++++++
+--------------------
 
 #. Login to the vendor instance with admin credentials
 
-.. figure:: images/calm_servicenow_09.png
+   .. figure:: images/calm_servicenow_09.png
 
 #. Impersonate as user **Giridhar Shankar** to open a ServiceNow session as a non-admin user
 
-.. figure:: images/calm_servicenow_10.png
+   .. figure:: images/calm_servicenow_10.png
 
 #. Navigate to **Nutanix Calm > Catalog Management > Launch Blueprint**. Choose **Calm Demo Windows Dev Setup** catalog item under un-published blueprints category
 
-.. note::
-  - Search Nutanix in the left navigation bar to get to Calm specific menu
-  - Ensure you are logged in as a non-admin (your Nutanix AD account) user
-  - You will see this sample catalog item in the catalog items page only if you are added as a catalog item user by the admin (as in the previous section **Creating a Catalog Item**)
+   .. note::
+    - Search Nutanix in the left navigation bar to get to Calm specific menu
+    - Ensure you are logged in as a non-admin (your Nutanix AD account) user
+    - You will see this sample catalog item in the catalog items page only if you are added as a catalog item user by the admin (as in the previous section **Creating a Catalog Item**)
 
-.. figure:: images/calm_servicenow_11.png
+   .. figure:: images/calm_servicenow_11.png
 
 #. Choose the catalog item and click on **Launch**
 
-.. figure:: images/calm_servicenow_12.png
+   .. figure:: images/calm_servicenow_12.png
 
 #. Catalog order page comes up after a few seconds and only those runtime variables/VM spec attributes
 
-.. figure:: images/calm_servicenow_13.png
+   .. figure:: images/calm_servicenow_13.png
 
 #. Fill-in the name of the Application and click on **Order Now**. This triggers any approval process configured in the plugin (in this case we have configured auto approve) and finally makes a Calm API request to create an App instance using the data in catalog item and user entered input(s)
 
 #. After a few minutes, the Application you created should get listed under the Applications menu in the plugin!
 
 
-
+----------------------------------------
 Perform Stop operation on an Application
-++++++++++++++++++++++++++++++++++++++++
+----------------------------------------
 
 #. Login to the vendor instance with admin credentials
 
-.. figure:: images/calm_servicenow_09.png
+   .. figure:: images/calm_servicenow_09.png
 
 #. Impersonate as user **Giridhar Shankar** to open a ServiceNow session as a non-admin user
 
-.. figure:: images/calm_servicenow_10.png
+   .. figure:: images/calm_servicenow_10.png
 
 #. Navigate to **Nutanix Calm > Applications**. Choose your application you created in the previous section
 
@@ -174,15 +231,20 @@ Perform Stop operation on an Application
 
 #. Action now gets triggered on this App in Calm. Since Calm Plugin V1.2, you can configure a separate approval workflow for system or user defined actions. In this example, there is no approval configuration and hence action immediately gets triggered in Calm
 
-.. figure:: images/calm_servicenow_14.png
+   .. figure:: images/calm_servicenow_14.png
 
-.. figure:: images/calm_servicenow_15.png
+   .. figure:: images/calm_servicenow_15.png
 
 
 ---------
 Takeaways
 ---------
 
+#. Calm ServiceNow Plugin extends support for Self-Service to ServiceNow and allows organisations with ServiceNow to utilise standard company proccesses to enabel Auotmation
+
+#. Catalogue Items allow Calm Blueprints or MarketPlace Items to be be published to ServiceNow
+
+#. Calm ServiceNow Plugin not only enable Day-0 operations but Day-2
 
 .. |proj-icon| image:: ../images/projects_icon.png
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
