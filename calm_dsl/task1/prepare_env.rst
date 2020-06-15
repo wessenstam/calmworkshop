@@ -23,7 +23,6 @@ Make sure you have Docker running on your laptop. To verify that Docker engine i
 
 If you don't have Docker installed, please refer to the installation instructions here:
 
-<<<<<<< HEAD
 **MacOS:**
 
 #. Intall  the latest version of Python, download from here: https://www.python.org/downloads/
@@ -43,22 +42,20 @@ If you don't have Docker installed, please refer to the installation instruction
 
 #. Install Docker for Windows, details and download are found, here: https://hub.docker.com/editions/community/docker-ce-desktop-windows/
 
-.. note::
-  When the installation finishes, Docker starts automatically. The whale |docker-icon| in the notification area indicates that Docker is running, and accessible from a terminal.
-
+   .. note::
+     When the installation finishes, Docker starts automatically. The whale |docker-icon| in the notification area indicates that Docker is running, and accessible from a terminal.
+  
 #. Install Linux kernel update, found here: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-.. note::
-  To install the Linux kernel update package:
-   - Run the update package downloaded in the previous step.
-   - You will be prompted for elevated permissions, select ‘yes’ to approve this installation.
-   - Once the installation is complete, you are ready to begin using WSL2!
+   .. note::
+     To install the Linux kernel update package:
+  
+     - Run the update package downloaded in the previous step.
+     - You will be prompted for elevated permissions, select ‘yes’ to approve this installation.
+     - Once the installation is complete, you are ready to begin using WSL2!
 
 #. Open PowerShell with Administrator Privilages
-=======
-- `MacOS <https://docs.docker.com/docker-for-mac/install/>`_
-- `Windows <https://docs.docker.com/docker-for-windows/install/>`_
->>>>>>> fa042f1177646d1a77984115ca4d69313e2855d2
+
 
 Running calm-dsl
 .................
