@@ -23,6 +23,7 @@ Make sure you have Docker running on your laptop. To verify that Docker engine i
 
 If you don't have Docker installed, please refer to the installation instructions here:
 
+<<<<<<< HEAD
 **MacOS:**
 
 #. Intall  the latest version of Python, download from here: https://www.python.org/downloads/
@@ -54,6 +55,10 @@ If you don't have Docker installed, please refer to the installation instruction
    - Once the installation is complete, you are ready to begin using WSL2!
 
 #. Open PowerShell with Administrator Privilages
+=======
+- `MacOS <https://docs.docker.com/docker-for-mac/install/>`_
+- `Windows <https://docs.docker.com/docker-for-windows/install/>`_
+>>>>>>> fa042f1177646d1a77984115ca4d69313e2855d2
 
 Running calm-dsl
 .................
