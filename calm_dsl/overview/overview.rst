@@ -30,7 +30,7 @@ Pre-requisites
 
 Before starting this workshop we assume you have the following skills and tools:
 
-* **calm:** Good understanding of Calm architecture and building blocks of a blueprint
+* **Calm:** Good understanding of Calm architecture and building blocks of a blueprint
 * **Python3:** Basic knowledge is required. Variables, classes, functions and python syntax
 * **Git:** Basic git commands
 * **Docker:** Basic knowledge on running an image

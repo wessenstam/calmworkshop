@@ -239,6 +239,7 @@ Takeaways
 - Administrators have control over what Blueprints are published to the Marketplace and which projects have access to published Blueprints.
 
 .. |proj-icon| image:: ../images/projects_icon.png
+.. |docker-icon| image:: ../images/docker_icon.png
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
