@@ -43,7 +43,7 @@ If you don't have Docker installed, please refer to the installation instruction
 #. Install Docker for Windows, details and download are found, here: https://hub.docker.com/editions/community/docker-ce-desktop-windows/
 
    .. note::
-     When the installation finishes, Docker starts automatically. The whale |docker-icon| in the notification area indicates that Docker is running, and accessible from a terminal.
+     When the installation finishes, Docker starts automatically. The whale |docker_icon| in the notification area indicates that Docker is running, and accessible from a terminal.
   
 #. Install Linux kernel update, found here: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
@@ -104,11 +104,11 @@ Optional: integration with VSCode
 
 Optionally you can integrate the running container with Visual Studio Code to allow lenting, follow the steps on this blog: https://www.nutanix.dev/2020/04/24/nutanix-calm-dsl-remote-container-development-part-1/
 
-.. |proj-icon| image:: ../images/projects_icon.png
-.. |docker-icon| image:: ../images/docker_icon.png
-.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
-.. |mkt-icon| image:: ../images/marketplace_icon.png
-.. |bp-icon| image:: ../images/blueprints_icon.png
-.. |blueprints| image:: images/blueprints.png
-.. |applications| image:: images/blueprints.png
-.. |projects| image:: images/projects.png
+.. |proj-icon| image:: ../../images/projects_icon.png
+.. |docker-icon| image:: ../../images/docker_icon.png
+.. |mktmgr-icon| image:: ../../images/marketplacemanager_icon.png
+.. |mkt-icon| image:: ../../images/marketplace_icon.png
+.. |bp-icon| image:: ../../images/blueprints_icon.png
+.. |blueprints| image:: ../../images/blueprints.png
+.. |applications| image:: ../../images/blueprints.png
+.. |projects| image:: ../../images/projects.png
